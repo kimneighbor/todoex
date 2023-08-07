@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
+html {
+    height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Fira Code", monospace;
+    background-color: #011627;
+    color: #d6deeb;
+    height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input[type="text"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    margin-right: 0.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    background-color: #5e81ac;
+    color: #eceff4;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+    background-color: #88c0d0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: #1d3b53;
+    border-radius: 0.25rem;
+}
+
+.todo-item span {
+    margin-right: 0.5rem;
+}
+
+.todo-item button {
+    margin-left: auto;
+    background-color: #bf616a;
+    transition: background-color 0.3s ease;
+}
+
+.todo-item button:hover {
+    background-color: #d08770;
 }

@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, {useState} from "react";
+import TodoBoard from "./todo/TodoBoard";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [inputValue, setInputValue] = useState("");
+    const [todoList, setTodoList] = useState([]);
+
+    const addItem = () => {
+        setTodoList([...todoList, inputValue]);
+    };
+
+    const deleteItem = (index) => {
+        // index에 해당하는 todoList 항목을 삭제합니다.
+        const newTodoList = [...todoList];
+        newTodoList.splice(index, 1);
+        setTodoList(newTodoList);
+    };
+
+    return (
+        <main>
+            <input
+                value={inputValue}
+                type="text"
+                onChange={(event) => setInputValue(event.target.value)}
+            />
+            <button onClick={addItem}>추가</button>
+            <button onClick={deleteItem}>삭제</button>
+
+            <TodoBoard todoList={todoList} deleteItem={deleteItem}/>
+        </main>
+    );
 }
 
 export default App;
